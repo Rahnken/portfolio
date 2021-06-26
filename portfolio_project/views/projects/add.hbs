@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+{{!- Hidden place to add projects to the db --}}
+{{!-- TODO tools list and properly handle urls to linked places--}}
+<form method="post">
+    {{!--Fields --}}
+    <fieldset class="form-group">
+        <label for="name" class="col-2">Name:</label>
+        <input name="name" id="name" required/>
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="description" class="col-2">description:</label>
+        <input name="description" id="description" required type="text"/>
+    </fieldset>
+    {{!-- Text field but comma separated? does this add as an array??--}}
+    <fieldset class="form-group">
+        <label for="tools" class="col-2">Tools Used: </label>
+        <input type="text" name="tools" id="tools">
+    </fieldset>
+    {{!-- A string field but must have a better way to confirm its a URL?--}}
+    <fieldset class="form-group">
+        <label for="hosted" class="col-2">Hosted at : </label>
+        <input type="text" name="hosted" id="hosted">
+    </fieldset>
+    {{! A Button}}
+    <button class="offset-3 btn-primary">Save</button>
+</form>

@@ -1,0 +1,20 @@
+
+    <h1>{{title}}</h1>
+    <table class="table table-light table-striped table-hover">
+        <thead>
+             <th> Project Name</th>
+             <th> Description</th>
+             <th> Tools / Technologies Used</th>
+             <th> Github Link</th>
+
+        </thead>
+        {{#each dataset}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.tools}}</td>
+            <td>{{this.hosted}}</td>
+        </tr>
+    {{/each}}
+    </table>
+

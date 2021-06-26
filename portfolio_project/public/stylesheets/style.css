@@ -1,0 +1,34 @@
+
+:root{
+
+  --clr-bg-dark : #003333;
+  --clr-bg-light: #CDCDD1;
+  --clr-accent-light : #FFCC33;
+  --clr-accent-dark: #663300;
+  --ff-main:  bebas-neue-pro-expanded, sans-serif;
+  --ff-subtitle: bebas-neue-prop,sans-serif;
+  --ff-title:  bennet-banner,sans-serif;
+
+  --fs-1:4rem;
+  --fs-2:3rem;
+  --fs-p:1rem;
+
+  --fw-n:400;
+  --fw-b:900;
+
+}
+
+body {
+  padding: 50px;
+  font-family: var(--ff-main);
+  background:var(--clr-bg-dark);
+  color: var(--clr-accent-light);
+}
+h1{
+  font-family: var(--ff-title);
+  font-size: var(--fs-1);
+  font-weight: var(--fw-b);
+}
+a {
+  color: #00B7FF;
+}
