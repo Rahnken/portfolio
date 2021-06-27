@@ -13,9 +13,8 @@ router.post('/', (req, res) => {
 
     // Instantiate the SMTP server
     const smtpTrans = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
+        host: 'smtp.ericdonnellydevelopment.tech',
+        port: 587,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
