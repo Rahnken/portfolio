@@ -13,8 +13,9 @@ router.post('/', (req, res) => {
 
     // Instantiate the SMTP server
     const smtpTrans = nodemailer.createTransport({
-        host: 'smtp.ericdonnellydevelopment.tech',
-        port: 587,
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure:true,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
@@ -32,11 +33,13 @@ router.post('/', (req, res) => {
     // Attempt to send the email
     smtpTrans.sendMail(mailOpts, (error, response) => {
         if (error) {
-            res.render('email/contact-failure',{title:'Contact Form Failure',error:error}) // Show a page indicating failure
+            res.render('email/contact-failure', {title: 'Contact Form Failure', error: error}) // Show a page indicating failure
             console.log(error);
-        }
-        else {
-            res.render('email/contact-success',{title:' Contact Form Sent ',message:"Message sent , will respond when available "}) // Show a page indicating success
+        } else {
+            res.render('email/contact-success', {
+                title: ' Contact Form Sent ',
+                message: "Message sent , will respond when available "
+            }) // Show a page  indicating success
         }
     })
 })
