@@ -33,11 +33,11 @@ router.post('/', (req, res) => {
     // Attempt to send the email
     smtpTrans.sendMail(mailOpts, (error, response) => {
         if (error) {
-            res.render('email/contact-failure',{title:'BIG NOPE'}) // Show a page indicating failure
+            res.render('email/contact-failure',{title:'BIG NOPE',error:error}) // Show a page indicating failure
             console.log(error);
         }
         else {
-            res.render('email/contact-success',{title:' WE Win}'}) // Show a page indicating success
+            res.render('email/contact-success',{title:' WE Win',message:"Message sent , will respond when available "}) // Show a page indicating success
         }
     })
 })
