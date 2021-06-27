@@ -1,9 +1,12 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-let mongo = require('mongoose')
+const mongo = require('mongoose');
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 
 
@@ -24,6 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({extended:true}));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -33,7 +38,7 @@ app.use('/projects',projectRouter);
 
 // connect to mongo
 
-const connectionString = 'mongodb+srv://admin:js2021Sum@cluster0.tqxkx.mongodb.net/comp2068'
+const connectionString = `mongodb+srv://admin:${process.env.DB_PASS}@cluster0.tqxkx.mongodb.net/comp2068`
 mongo.connect(connectionString,{useNewUrlParser:true,useUnifiedTopology:true}).then(
     (message)=>{
       console.log('Connected Successfully')
